@@ -9,8 +9,3 @@ class PoemsController < ApplicationController
     render json: @poem
   end
 end
-
-private
-  def poems_params
-    params.require(:poem).permit(:titel, :content)
-  end
