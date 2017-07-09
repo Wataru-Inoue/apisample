@@ -3,4 +3,14 @@ class PoemsController < ApplicationController
     @poems = Poem.all
     render json: @poems
   end
+
+  def show
+    @poem = Poem.find(params[:id])
+    render json: @poem
+  end
 end
+
+private
+  def poems_params
+    params.require(:poem).permit(:titel, :content)
+  end
